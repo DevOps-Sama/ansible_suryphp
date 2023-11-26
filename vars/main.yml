@@ -1,0 +1,10 @@
+---
+# vars file for ansible_suryphp
+sury_php_deps:
+  - apt-transport-https
+  - ca-certificates
+  - gnupg2
+  - software-properties-common
+  - wget
+
+sury_gpg_url: https://packages.sury.org/php/apt.gpg

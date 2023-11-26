@@ -1,0 +1,19 @@
+---
+# tasks file for ansible_suryphp
+- name: Instala dependências
+  ansible.builtin.apt:
+    update_cache: true
+    name: "{{ sury_php_deps }}"
+
+- name: Adiciona chave GPG
+  ansible.builtin.apt_key:
+    url: "{{ sury_gpg_url }}"
+    keyring: /usr/share/keyrings/deb.sury.org-php.gpg
+    state: present
+
+- name: Instala repositorio
+  ansible.builtin.apt_repository:
+    repo: "{{ lookup('template', 'php.list.j2') }}"
+    state: present
+    filename: php
+    update_cache: true

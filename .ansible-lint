@@ -1,0 +1,4 @@
+---
+exclude_paths:
+  - molecule/
+  - .pre-commit-config.yaml
